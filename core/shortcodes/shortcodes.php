@@ -50,16 +50,7 @@ class Shortcodes {
                     empty( $post_arr["wpfs_phone"] ) || empty( $post_arr["wpfs_post"] ) ||
                     empty( $_FILES["wpfs_cv"] ) ) {
                     //early return if any field is empty
-                    ?>
-                    <div class="section-inner">
-                        <h3 class="wpfs-error-text-title">
-                            <?php echo esc_html__( "All fields are required. ", "wpfs" ); ?>
-                        </h3>
-                        <div class="wpfs-error-text-body">
-                            <a class="wpfs-btn" class="btn btn-primary" href="<?php echo esc_url( get_permalink() ); ?>"><?php echo esc_html__( "Try Again", "wpfs" ); ?></a>
-                        </div>
-                    </div>
-                    <?php
+                    Helper::show_result_message( "All fields are required. ", "Try Again" );
                 } else {
                     $first_name = $post_arr["wpfs_fname"];
                     $last_name  = $post_arr["wpfs_lname"];
@@ -89,74 +80,30 @@ class Shortcodes {
                             $id_insert = $wpdb->insert_id;
 
                             if ( empty( $id_insert ) ) {
-                                ?>
-                                <div class="section-inner">
-                                    <h3 class="wpfs-error-text-title">
-                                        <?php echo esc_html__( "Application submission failed, please try again!. ", "wpfs" ); ?>
-                                    </h3>
-                                    <div class="wpfs-error-text-body">
-                                        <a class="wpfs-btn" href="<?php echo esc_url( get_permalink() ); ?>"><?php echo esc_html__( "Return to form", "wpfs" ); ?></a>
-                                    </div>
-                                </div>
-                                <?php
+                                Helper::show_result_message("Application submission failed, please try again! ", "Return to form" );
                             } else {
                                 $from_name  = get_bloginfo( "name" );
                                 $from       = get_bloginfo( 'admin_email' );
                                 $subject    = esc_html__( 'Application submission', "wpfs" );
 
                                 ob_start();
-                                ?>
-                                <div class="section-inner">
-                                    <div class="wpfs-error-text-title">
-                                        <?php echo esc_html__( "Application submission successful!. Your application id is " . $id_insert . ", please save this ID for future use.", "wpfs" ); ?>
-                                    </div>
-                                    <div class="wpfs-error-text-body">
-                                        <a class="wpfs-btn" href="<?php echo esc_url( get_permalink() ); ?>"><?php echo esc_html__( "Submit Another Application", "wpfs" ); ?></a>
-                                    </div>
-                                </div>
-                                <?php
+                                Helper::show_result_message("Application submission successful!. Your application id is " . $id_insert . ", please save this ID for future use. ", "Submit Another Application" );
                                 $body       = ob_get_clean();
+                                
                                 Helper::send_email( $email, $subject, $body, $from, $from_name );
                                 echo Helper::render( $body );
                             }
                         } else {
-                            ?>
-                            <div class="section-inner">
-                                <h3 class="wpfs-error-text-title">
-                                    <?php echo esc_html__( "There was a problem uploading your file, please try again!. ", "wpfs" ); ?>
-                                </h3>
-                                <div class="wpfs-error-text-body">
-                                    <a class="wpfs-btn" href="<?php echo esc_url( get_permalink() ); ?>"><?php echo esc_html__( "Return to form", "wpfs" ); ?></a>
-                                </div>
-                            </div>
-                            <?php
+                            Helper::show_result_message("There was a problem uploading your file, please try again!", "Return to form" );
                         }
                     } else {
-                        ?>
-                        <div class="section-inner">
-                            <h3 class="wpfs-error-text-title">
-                                <?php echo esc_html__( "Invalid file, please try again!. ", "wpfs" ); ?>
-                            </h3>
-                            <div class="wpfs-error-text-body">
-                                <a class="wpfs-btn" href="<?php echo esc_url( get_permalink() ); ?>"><?php echo esc_html__( "Return to form", "wpfs" ); ?></a>
-                            </div>
-                        </div>
-                        <?php
+                        Helper::show_result_message("Invalid file, please try again! ", "Return to form" );
                     }
                 }
 
             } else {
                 //invalid nonce, show error message
-                ?>
-                <div class="section-inner">
-                    <h3 class="wpfs-error-text-title">
-                        <?php echo esc_html__( "Invalid Request. ", "wpfs" ); ?>
-                    </h3>
-                    <div class="wpfs-error-text-body">
-                        <a class="wpfs-btn" href="<?php echo esc_url( get_permalink() ); ?>"><?php echo esc_html__( "Return to form", "wpfs" ); ?></a>
-                    </div>
-                </div>
-                <?php
+                Helper::show_result_message("Invalid Request. ", "Return to form" );
             }
 
             wp_footer();

@@ -40,7 +40,7 @@ class Dashboard {
     public function add_admin_menu() {
 
         $position       = 60;
-        $page_title     = esc_html__( "Wp Assignment", "wpfs" );
+        $page_title     = esc_html__( "Wp Form Submit", "wpfs" );
         $capability     = 'manage_options';
         $page_menu_slug = "wpfs";
         $icon_url       = 'dashicons-media-code';
