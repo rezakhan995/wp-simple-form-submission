@@ -1,6 +1,6 @@
 <?php
 
-namespace Wpfa;
+namespace Wpfs\Utils;
 
 defined("ABSPATH") || die();
 

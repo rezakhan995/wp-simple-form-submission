@@ -3,17 +3,17 @@
   text-align: left;
 }
 
-.wpfa-contain {
+.wpfs-contain {
   background: #ffffff;
   border-radius: 5px;
   border: 1px solid #cacaca;
 }
 
-.wpfa-title {
+.wpfs-title {
   text-align: center;
 }
 
-.wpfa-btn {
+.wpfs-btn {
   font-size: 20px;
   color: #fff;
   background-color: #5d78ff;
@@ -33,11 +33,11 @@
   cursor: pointer;
   outline: none;
 }
-.wpfa-btn:hover {
+.wpfs-btn:hover {
   background-color: #09c4b7;
 }
 
-.wpfa-form-control {
+.wpfs-form-control {
   width: 100% auto;
   display: block;
 }

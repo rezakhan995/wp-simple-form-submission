@@ -1,11 +1,11 @@
 <?php
 
-namespace Wpfa;
+namespace Wpfs;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Wpfa autoloader.
+ * Wpfs autoloader.
  * Handles dynamically loading classes only when needed.
  *
  * @since 1.0.0

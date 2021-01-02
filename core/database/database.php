@@ -1,10 +1,10 @@
 <?php
 
-namespace Wpfa\Core\Database;
+namespace Wpfs\Core\Database;
 
 class Database {
 
-    use \Wpfa\Traits\Singleton;
+    use \Wpfs\Traits\Singleton;
 
     public function init() {
         $this->_action_create_table();

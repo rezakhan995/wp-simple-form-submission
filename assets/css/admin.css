@@ -1,0 +1,54 @@
+table.wpfs-admin-table,
+th.wpfs-admin-table-head,
+td.wpfs-admin-table-data {
+  border: 1px solid black;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.wpfs-row {
+  margin: 30px;
+}
+.wpfs-admin-table-data,
+.wpfs-admin-table-head {
+  padding: 5px;
+}
+
+.wpfs-admin-page-title {
+  text-align: left;
+}
+
+.wpfs-admin-page-search {
+  text-align: right;
+}
+
+.wpfs_widget {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+.wpfs-btn {
+    font-size: 12px;
+    color: #fff;
+    background-color: #5d78ff;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    display: inline-block;
+    padding: 5px 20px;
+    font-weight: 500;
+    text-decoration: none;
+    line-height: 35px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+  }
+  .wpfs-btn:hover {
+    background-color: #09c4b7;
+  }

@@ -3,19 +3,19 @@
 defined( "ABSPATH" ) || exit;
 
 /**
- * Plugin Name: Wp Form Assignment
+ * Plugin Name: Wp Simple Form Submission
  * Description: A simple form submission plugin
  * Plugin URI: https://reza-khan.com
  * Author: Reza Khan
  * Version: 1.0.0
  * Author URI: https://reza-khan.com/
- * Text Domain: wpfa
+ * Text Domain: wpfs
  * Domain Path: /languages
  * License: GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 
-final class Wpfa {
+final class Wpfs {
 
     /**
      * Plugin version
@@ -45,20 +45,20 @@ final class Wpfa {
      */
     public function init_plugin() {
 
-         do_action( 'wpfa/before_load' );
+         do_action( 'wpfs/before_load' );
          $this->initialize_functionalities();
-         do_action( 'wpfa/after_load' );
+         do_action( 'wpfs/after_load' );
     }
 
 
     public function initialize_functionalities(){
-      \Wpfa\Autoloader::run();
+      \Wpfs\Autoloader::run();
 
       $this->enqueue_scripts();
 
-      \Wpfa\Core\Database\Database::instance()->init();
-      \Wpfa\Core\Shortcodes\Shortcodes::instance()->init();
-      \Wpfa\Core\Dashboard\Dashboard::instance()->init();
+      \Wpfs\Core\Database\Database::instance()->init();
+      \Wpfs\Core\Shortcodes\Shortcodes::instance()->init();
+      \Wpfs\Core\Dashboard\Dashboard::instance()->init();
     }
 
     function enqueue_scripts(){
@@ -67,11 +67,11 @@ final class Wpfa {
     }
 
     function admin_enqueue_scripts(){
-      wp_enqueue_style( 'wpfa-admin-css', WPFA_ASSETS . '/css/admin.css', [], WPFA_VERSION, 'all' );
+      wp_enqueue_style( 'wpfs-admin-css', WPFS_ASSETS . '/css/admin.css', [], WPFS_VERSION, 'all' );
     }
 
     function public_enqueue_scripts(){
-      wp_enqueue_style( 'wpfa-public-css', WPFA_ASSETS . '/css/public.css', [], WPFA_VERSION, 'all' );
+      wp_enqueue_style( 'wpfs-public-css', WPFS_ASSETS . '/css/public.css', [], WPFS_VERSION, 'all' );
     } 
 
     /**
@@ -93,12 +93,12 @@ final class Wpfa {
     }
 
     public function define_constants() {
-        define( 'WPFA_VERSION', $this->version );
-        define( 'WPFA_FILE', __FILE__ );
-        define( 'WPFA_PATH', untrailingslashit( plugin_dir_path( WPFA_FILE ) ) );
-        define( 'WPFA_CORE_PATH', WPFA_PATH . '/core' );
-        define( 'WPFA_URL', plugins_url( '', WPFA_FILE ) );
-        define( 'WPFA_ASSETS', WPFA_URL . '/assets' );
+        define( 'WPFS_VERSION', $this->version );
+        define( 'WPFS_FILE', __FILE__ );
+        define( 'WPFS_PATH', untrailingslashit( plugin_dir_path( WPFS_FILE ) ) );
+        define( 'WPFS_CORE_PATH', WPFS_PATH . '/core' );
+        define( 'WPFS_URL', plugins_url( '', WPFS_FILE ) );
+        define( 'WPFS_ASSETS', WPFS_URL . '/assets' );
     }
 
     /**
@@ -111,7 +111,7 @@ final class Wpfa {
         static $instance = false;
 
         if ( !$instance ) {
-            $instance = new Wpfa();
+            $instance = new Wpfs();
         }
 
         return $instance;
@@ -119,4 +119,4 @@ final class Wpfa {
 
 }
 
-Wpfa::init();
+Wpfs::init();
