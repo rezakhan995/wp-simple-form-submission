@@ -40,9 +40,11 @@ class Helper {
         return $content;
     }
 
-    public static function get_all_applications() {
+    public static function get_all_applications( $f_name = null, $order_by = null, $order = null ) {
         global $wpdb;
-        $applications = $wpdb->get_results("SELECT * FROM applicant_submissions", ARRAY_A);
+        $where          = !empty( $f_name ) ? " WHERE first_name LIKE %{$f_name}%" : "";
+        $query_order    = !empty( $order_by ) ? " ORDER BY {$order_by} {$order}" : "";
+        $applications   = $wpdb->get_results("SELECT * FROM applicant_submissions " . $where . $query_order, ARRAY_A);
         
         return $applications;
     }
@@ -59,7 +61,6 @@ class Helper {
         </div>
         <?php
     }
-
 }
 
 ?>

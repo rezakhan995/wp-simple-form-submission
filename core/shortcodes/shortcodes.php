@@ -76,7 +76,8 @@ class Shortcodes {
 
                             //insert into db
                             global $wpdb;
-                            $inserted  = $wpdb->query( "INSERT INTO `applicant_submissions` (`first_name`, `last_name`, `present_address`, `email`, `phone`, `post_name`, `cv_path`) VALUES ('$first_name', '$last_name', '$address', '$email', '$phone', '$post', '$cv_file_path')" );
+                            $time = time();
+                            $inserted  = $wpdb->query( "INSERT INTO `applicant_submissions` (`first_name`, `last_name`, `present_address`, `email`, `phone`, `post_name`, `cv_path` , `time_stamp`) VALUES ('$first_name', '$last_name', '$address', '$email', '$phone', '$post', '$cv_file_path', '$time')" );
                             $id_insert = $wpdb->insert_id;
 
                             if ( empty( $id_insert ) ) {

@@ -35,6 +35,7 @@ class Database {
                         `phone` varchar(16) NOT NULL,
                         `post_name` varchar(150) NOT NULL,
                         `cv_path` varchar(255) NOT NULL,
+                        `time_stamp` varchar(255) NOT NULL,
                         PRIMARY KEY (`application_id`)
                     ) $charset_collate;";
 
