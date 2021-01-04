@@ -1,3 +1,7 @@
+.wpfs-page-table {
+  width: 100%;
+}
+
 table.wpfs-admin-table,
 th.wpfs-admin-table-head,
 td.wpfs-admin-table-data {
@@ -15,40 +19,61 @@ td.wpfs-admin-table-data {
 }
 
 .wpfs-admin-page-title {
-  text-align: left;
+  float: left;
+  display: inline;
 }
 
 .wpfs-admin-page-search {
-  text-align: right;
+  float: right;
+  display: inline;
 }
 
 .wpfs_widget {
   width: 1200px;
   margin: 0 auto;
   position: relative;
+  background-color: #fff;
+  padding: 40px 40px 20px;
+  margin-top: 30px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
 }
 
-
 .wpfs-btn {
-    font-size: 12px;
-    color: #fff;
-    background-color: #5d78ff;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -ms-border-radius: 5px;
-    transition: all 0.4s ease;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -ms-transition: all 0.4s ease;
-    display: inline-block;
-    padding: 5px 20px;
-    font-weight: 500;
-    text-decoration: none;
-    line-height: 35px;
-    border: none;
-    cursor: pointer;
-    outline: none;
-  }
-  .wpfs-btn:hover {
-    background-color: #09c4b7;
-  }
+  font-size: 12px;
+  color: #fff;
+  background-color: #5d78ff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -ms-border-radius: 5px;
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  display: inline-block;
+  padding: 5px 20px;
+  font-weight: 500;
+  text-decoration: none;
+  line-height: 35px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.wpfs-btn:hover {
+  background-color: #09c4b7;
+}
+
+.wp-header-end {
+  visibility: visible;
+  margin: 0px;
+  padding: 0px;
+  border-top-color: #ededed;
+  border-bottom: none;
+  width: auto;
+}
+
+.wpfs-haeading {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  margin-top: auto;
+}

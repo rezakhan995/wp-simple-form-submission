@@ -1,23 +1,24 @@
-<div class="container wpfs_widget">
+<div class="container <?php  echo ( !$dashboard_widget ) ? "wpfs_widget" : ""; ?> ">
     <?php
     if( !$dashboard_widget ){
         ?>
         <div class="row wpfs-row wpfs-haeading">
             <div class="wpfs-admin-page-title">
-                <h3><?php echo esc_html__( "All applications", "wpfs" ); ?></h3>
+                <h3><?php echo esc_html__( "All Applications", "wpfs" ); ?></h3>
             </div>
             <div class="wpfs-admin-page-search">
-                <form>
+                <form method="post" action="#">
                     <input type="text" name="search" />
-                    <input type="submit" name="submit" value="submit"/>
+                    <input type="submit" class="wpfs-btn" name="submit" value="submit"/>
                 </form>
             </div>
         </div>
+        <hr>
         <?php
     }
     ?>
     <div class="row wpfs-row">
-        <table class="wpfs-admin-table">
+        <table class="wpfs-admin-table <?php  echo ( !$dashboard_widget ) ? "wpfs-page-table" : ""; ?>">
             <tr>
                 <th class="wpfs-admin-table-head"><?php echo esc_html__("First Name", "wpfs");?></th>
                 <?php if(!$dashboard_widget){?><th class="wpfs-admin-table-head"><?php echo esc_html__("Last Name", "wpfs");?></th><?php } ?>
